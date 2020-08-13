@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { IUser } from '../../models/user.interface';
+import { IUser, IUserResponse } from '../../models/user.interface';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,17 +9,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  users: IUser[]
+  name: string
+  knowFor: string
+  profession: string
+  gender: string
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
       this.userService.getPerson()
-      .subscribe(
-        (data) => {
-          this.users = data['data'];
-        },
-        (error) => {
-          console.error(error);
+      .subscribe((response) => {
+        const { profession } = response['data']
+        const { knowFor } = response['data']
+        const { name } = response['data']
+        const { gender }  = response['data']
+        this.knowFor = knowFor
+        this.profession = profession
+        this.name = `${name.first} ${name.last}`
+        this.gender = gender
         }
       );
     

@@ -1,12 +1,13 @@
 export interface IUser {
-    data :{
-        name: {
-            first: string,
-            last: string
-        },
-        gender: string,
-        profession: string,
-        knowFor: string
+    name: {
+        first: string,
+        last: string
     },
-    status: number
+    gender: string,
+    profession: string,
+    knowFor: string
+
+}
+export interface IUserResponse {
+    data: IUser[];
 }

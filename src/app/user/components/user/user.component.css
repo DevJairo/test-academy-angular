@@ -1,0 +1,12 @@
+.user {
+    margin: auto;
+    display: block;
+    max-width: 300px;
+    background: #dcefff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+}
+.user p {
+    padding: 10px;
+}
