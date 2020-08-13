@@ -1,5 +1,5 @@
 export interface IUser {
-    data : {
+    data :{
         name: {
             first: string,
             last: string
